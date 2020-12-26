@@ -9,5 +9,5 @@ const firebaseConfig = {
   measurementId: 'G-VCSE7FQW1S',
 };
 // Initialize Firebase
-firebase.analytics();
+// firebase.analytics();
 export default firebase.initializeApp(firebaseConfig);
