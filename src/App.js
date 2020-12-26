@@ -1,10 +1,16 @@
 import React from 'react';
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+// PAGES
 import Login from './view/login';
+import NovoUsuario from './view/usuario-novo';
 function App() {
   return (
-    <>
-      <Login />
-    </>
+    <Router>
+      <Route exact path="/" component={Login} />
+      <Route exact path="/novousuario" component={NovoUsuario} />
+    </Router>
   );
 }
 
