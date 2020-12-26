@@ -1,5 +1,10 @@
 # Getting Started with Create React App
 
+# RUN
+
+Local: http://localhost:3000
+On Your Network: http://192.168.1.104:3000
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
