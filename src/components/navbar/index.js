@@ -29,7 +29,7 @@ function Navbar() {
 
           {useSelector((state) => state.usuarioLogado) ? (
             <>
-              <Link className="nav-item active ml-2" to="/">
+              <Link className="nav-item active ml-2" to="/cadastroeventos">
                 Publicar Evento
               </Link>
               <Link className="nav-item active ml-2" to="/">
