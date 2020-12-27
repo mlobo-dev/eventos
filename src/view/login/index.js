@@ -4,7 +4,6 @@ import { Link, Redirect } from 'react-router-dom';
 import firebase from '../../config/firebase';
 import 'firebase/auth';
 
-import Navbar from '../../components/navbar';
 import { useSelector, useDispatch } from 'react-redux';
 
 function Login() {
@@ -90,9 +89,9 @@ function Login() {
           </div>
 
           <div className="opcoes-login mt-5 text-center">
-            <a href="#" className="mx-2">
+            <Link to="/login" className="mx-2">
               Recuperar a senha
-            </a>
+            </Link>
             <label className="text-white">&#9733;</label>
             <Link to="novousuario" className="mx-2">
               Quero me cadastrar
