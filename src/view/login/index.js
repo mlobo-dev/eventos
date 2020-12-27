@@ -1,31 +1,41 @@
 import React, { useState } from 'react';
 import './login.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import firebase from '../../config/firebase';
 import 'firebase/auth';
 
 import Navbar from '../../components/navbar';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Login() {
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
   const [msgTipo, setMsgTipo] = useState();
+  const [carregando, setCarregando] = useState(false);
+  const dispatch = useDispatch();
 
   function logar() {
+    setCarregando(true);
     firebase
       .auth()
       .signInWithEmailAndPassword(email, senha)
       .then((resultado) => {
         setMsgTipo('sucesso');
+        setTimeout(() => {
+          dispatch({ type: 'LOG_IN', usuarioEmail: email });
+        }, 2000);
+
+        setCarregando(false);
       })
       .catch((error) => {
         setMsgTipo('erro');
+        setCarregando(false);
       });
   }
 
   return (
     <>
-      <Navbar />
+      {useSelector((state) => state.usuarioLogado) && <Redirect to="/" />}
       <div className="login-content  d-flex  align-items-center">
         <form className="form-signin mx-auto">
           <div className="text-center mb-4">
@@ -51,13 +61,19 @@ function Login() {
             onChange={(e) => setSenha(e.target.value)}
           />
 
-          <button
-            className="btn btn-lg btn-block btn-login"
-            type="button"
-            onClick={logar}
-          >
-            Login
-          </button>
+          {carregando ? (
+            <div class="spinner-border text-danger spinner" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          ) : (
+            <button
+              className="btn btn-lg btn-block btn-login"
+              type="button"
+              onClick={logar}
+            >
+              Login
+            </button>
+          )}
 
           <div className="msg-login text-white text-center my-5">
             {msgTipo === 'sucesso' && (

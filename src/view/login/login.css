@@ -26,3 +26,8 @@
   text-decoration: none;
   color: #f21667;
 }
+
+.spinner {
+  display: flex;
+  margin: auto;
+}
