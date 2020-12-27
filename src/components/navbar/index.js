@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg ">
       <Link className="navbar-brand" href="#">
-        <span className="text-white text-weigth-bold">Eventos</span>
+        <i class="fas fa-glass-cheers text-white fa-2x"></i>
       </Link>
       <button
         className="navbar-toggler"
@@ -23,21 +23,21 @@ function Navbar() {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
-          <Link className="nav-item active " to="/">
+          <Link className="nav-item active ml-2" to="/">
             Home
           </Link>
 
           {useSelector((state) => state.usuarioLogado) ? (
             <>
-              <Link className="nav-item active " to="/">
+              <Link className="nav-item active ml-2" to="/">
                 Publicar Evento
               </Link>
-              <Link className="nav-item active " to="/">
+              <Link className="nav-item active ml-2" to="/">
                 Meus Eventos
               </Link>
 
               <Link
-                className="nav-item active "
+                className="nav-item active ml-2"
                 to="/login"
                 onClick={() => dispatch({ type: 'LOG_OUT' })}
               >
@@ -46,7 +46,7 @@ function Navbar() {
             </>
           ) : (
             <>
-              <Link className="nav-item active " to="/login">
+              <Link className="nav-item active ml-2" to="/login">
                 Login
               </Link>
             </>

@@ -38,9 +38,7 @@ function Login() {
       <div className="login-content  d-flex  align-items-center">
         <form className="form-signin mx-auto">
           <div className="text-center mb-4">
-            <h1 className="h3 mb-3 font-weight-normal text-white font-weight-bold">
-              Login
-            </h1>
+            <i class="fas fa-glass-cheers text-white fa-5x"></i>
           </div>
 
           <input
@@ -70,7 +68,7 @@ function Login() {
               type="button"
               onClick={logar}
             >
-              Login
+              Entrar
             </button>
           )}
 
@@ -89,7 +87,7 @@ function Login() {
           </div>
 
           <div className="opcoes-login mt-5 text-center">
-            <Link to="/login" className="mx-2">
+            <Link to="/recuperarsenha" className="mx-2">
               Recuperar a senha
             </Link>
             <label className="text-white">&#9733;</label>
