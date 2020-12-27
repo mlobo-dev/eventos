@@ -1,8 +1,10 @@
 import React from 'react';
 import './navbar.css';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Navbar() {
+  const dispatch = useDispatch();
   return (
     <nav className="navbar navbar-expand-lg ">
       <Link className="navbar-brand" href="#">
@@ -24,12 +26,31 @@ function Navbar() {
           <Link className="nav-item active " to="/">
             Home
           </Link>
-          <Link className="nav-item active " to="/novousuario">
-            Cadastrar
-          </Link>
-          <Link className="nav-item active " to="/login">
-            Login
-          </Link>
+
+          {useSelector((state) => state.usuarioLogado) ? (
+            <>
+              <Link className="nav-item active " to="/">
+                Publicar Evento
+              </Link>
+              <Link className="nav-item active " to="/">
+                Meus Eventos
+              </Link>
+
+              <Link
+                className="nav-item active "
+                to="/login"
+                onClick={() => dispatch({ type: 'LOG_OUT' })}
+              >
+                Sair
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link className="nav-item active " to="/login">
+                Login
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>

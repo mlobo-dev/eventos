@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './usuario-novo.css';
 import firebase from '../../config/firebase';
 import 'firebase/auth';
+
 import Navbar from '../../components/navbar';
+import { Redirect } from 'react-router-dom';
 
 function NovoUsuario() {
   const [email, setEmail] = useState();
