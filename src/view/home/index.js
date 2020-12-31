@@ -1,11 +1,14 @@
 import React from 'react';
 import './home.css';
 import Navbar from '../../components/navbar';
+import CardEvento from '../../components/evento-card';
 function Home() {
   return (
     <>
       <Navbar />
-      <h1>Home</h1>
+      <div className="row">
+        <CardEvento />
+      </div>
     </>
   );
 }
